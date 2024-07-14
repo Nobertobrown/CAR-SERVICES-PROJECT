@@ -1,0 +1,27 @@
+/* search.css */
+.input-group-text {
+    border: none; /* Remove the border */
+}
+
+.form-control:focus {
+    box-shadow: none; /* Remove the outline on focus */
+}
+
+.input-group-prepend {
+    position: relative;
+}
+
+.input-group-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1; 
+    border-radius: 0; 
+}
+
+.form-control::placeholder
+{
+    text-align: center;
+    color: #ddd;
+}

@@ -1,0 +1,28 @@
+[
+    {
+      "name": "John Doe",
+      "location": "New York",
+      "stars": 4
+    },
+    {
+      "name": "Jane Smith",
+      "location": "Los Angeles",
+      "stars": 5
+    },
+    {
+      "name": "Michael Johnson",
+      "location": "Chicago",
+      "stars": 4.5
+    },
+    {
+      "name": "Emily Davis",
+      "location": "San Francisco",
+      "stars": 3.5
+    },
+    {
+      "name" : "Junior Jeconia",
+      "location" : "Tiwan",
+      "stars" : "5"
+    }
+  ]
+  
