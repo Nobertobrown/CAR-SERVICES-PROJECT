@@ -130,7 +130,7 @@ const NotificationIcon = ({ unreadCount }) => {
     <div className="notification-icon position-relative">
       <FontAwesomeIcon className="text-white fs-5" icon={faBell} />
       {unreadCount > 0 && (
-        <span className="position-absolute top-0 start-50 translate-middle badge rounded-circle bg-danger">
+        <span className="position-absolute top-0 translate-middle badge rounded bg-danger">
           {unreadCount}
         </span>
       )}

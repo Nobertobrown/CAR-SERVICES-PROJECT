@@ -135,12 +135,32 @@ export const deleteRequest = async (req, res) => {
   }
 };
 
+// Function to delete user
+export const deleteUser = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    await User.destroy(
+      { where: { id: id } }
+    );
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ error: "Error deleting user" });
+  }
+};
+
 // Function to get all requests for a given mechanic
 export const getRequests = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const requests = await Request.findAll({ where: { mechanicId: id } });
+    let requests;
+    if(id != null){
+      requests = await Request.findAll({ where: { mechanicId: id } });
+    }else{
+      requests = await Request.findAll();
+    }
     res.status(200).json(requests);
   } catch (error) {
     console.error("Error fetching requests:", error);

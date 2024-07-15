@@ -8,6 +8,7 @@ import {
   putMechanic,
   putRequest,
   deleteRequest,
+  deleteUser,
 } from "../controllers/userController.js";
 import verifyJWT from "../middleware/verifyJWT.js";
 
@@ -27,6 +28,12 @@ router.get("/mechanics", verifyJWT, getMechanics);
 
 // Route to update mechanic (protected route)
 router.put("/mechanics", verifyJWT, putMechanic);
+
+// Route to delete users (protected route)
+router.delete("/user/:id", verifyJWT, deleteUser);
+
+//Route to get all requests
+router.get("/requests", verifyJWT, getRequests);
 
 // Route to handle requests for specific mechanic
 router
