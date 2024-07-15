@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faShareAlt } from '@fortawesome/free-solid-svg-icons';
-import { Offcanvas, Button, Form, Col } from 'react-bootstrap';
+import { Offcanvas, Button, Form } from 'react-bootstrap';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -15,10 +15,10 @@ const Profile = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get('/auth/profile', {
+      const response = await axios.get("http://localhost:5000/auth/profile", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       });
       setUser(response.data);
       setFormData({
@@ -48,11 +48,15 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('/auth/profile', formData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+      const response = await axios.put(
+        "http://localhost:5000/auth/profile",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
-      });
+      );
       setUser(response.data);
       setShowEdit(false);
     } catch (error) {

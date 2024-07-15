@@ -2,13 +2,13 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
         email: '',
-        location: '',
         role: 'user',
         password: '',
         confirmPassword: ''
@@ -33,8 +33,15 @@ const SignUp = () => {
         }
 
         try {
-            const response = await axios.post('/auth/signup', formData);
-            console.log('User registered successfully:', response.data);
+            const response = await axios.post(
+              "http://localhost:5000/auth/signup",
+              formData
+            );
+            console.log(response)
+            if (response.data.success) {
+              toast.success("Registered Successfully!");
+              navigate("/login");
+            }
             // Redirect or show success message as needed
         } catch (error) {
             console.error('Error registering user:', error);
@@ -85,19 +92,6 @@ const SignUp = () => {
                                 name="email"
                                 placeholder="Enter email"
                                 value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="location" className="form-label">Location:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="location"
-                                name="location"
-                                placeholder="Enter location"
-                                value={formData.location}
                                 onChange={handleChange}
                                 required
                             />

@@ -73,7 +73,7 @@ const Home = () => {
   return (
     <div className="container py-4 bg-dark">
       {userData ? (
-        <h4 className="text-white">Welcome, {userData.name}!</h4>
+        <h4 className="text-white text-capitalize">Welcome, {userData.name}!</h4>
       ) : (
         <h4 className="text-white">Welcome back!</h4>
       )}

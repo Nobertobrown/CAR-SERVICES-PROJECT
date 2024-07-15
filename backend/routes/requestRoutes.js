@@ -6,12 +6,12 @@ import Request from '../models/request.js';
 const router = express.Router();
 
 router.post('/create', verifyJWT, async (req, res) => {
-  const { mechanicId, message } = req.body;
-  const userId = req.userId; // assuming user ID is set in the JWT payload
+  const { mechanicId, message, user } = req.body;
 
   try {
     const newRequest = await Request.create({
-      userId,
+      userName: user.name,
+      userNo: user.phoneNo,
       mechanicId,
       message
     });

@@ -70,3 +70,5 @@ const initializeDatabase = async () => {
 };
 
 initializeDatabase();
+
+//$2a$10$X4NNI0B3lRqgyfGStV2Yg.4iK58BOhlDeDD1jubvU/tcpJ.fVc1gS  (admin)

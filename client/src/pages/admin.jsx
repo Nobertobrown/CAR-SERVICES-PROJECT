@@ -17,11 +17,14 @@ const Admin = () => {
 
     const fetchRequests = async () => {
         try {
-            const response = await axios.get('/auth/requests', {
+            const response = await axios.get(
+              "http://localhost:5000/auth/requests",
+              {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
             setRequests(response.data);
         } catch (error) {
             console.error('Error fetching requests:', error);
@@ -30,11 +33,14 @@ const Admin = () => {
 
     const fetchMechanics = async () => {
         try {
-            const response = await axios.get('/auth/mechanics', {
+            const response = await axios.get(
+              "http://localhost:5000/auth/mechanics",
+              {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
             setMechanics(response.data);
         } catch (error) {
             console.error('Error fetching mechanics:', error);
@@ -43,11 +49,14 @@ const Admin = () => {
 
     const fetchClients = async () => {
         try {
-            const response = await axios.get('/auth/users', {
+            const response = await axios.get(
+              "http://localhost:5000/auth/users",
+              {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            );
             setClients(response.data);
         } catch (error) {
             console.error('Error fetching clients:', error);
@@ -56,10 +65,10 @@ const Admin = () => {
 
     const handleDeleteRequest = async (id) => {
         try {
-            await axios.delete(`/api/requests/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
+            await axios.delete(`http://localhost:5000/api/requests/${id}`, {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
             });
             setRequests(requests.filter(request => request.id !== id));
         } catch (error) {

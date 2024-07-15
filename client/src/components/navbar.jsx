@@ -1,4 +1,3 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark row fixed-bottom">
+        <nav className="navbar navbar-expand navbar-dark bg-dark row fixed-bottom d-md-none">
             <div className="container row">
                 <ul className="navbar-nav col-12 ms-5 row">
                     <li className="nav-item col">
