@@ -16,7 +16,7 @@ const verifyJWT = (req, res, next) => {
   const token = authHeader.split(' ')[1];
 
   // Log the token for debugging
-  console.log('Token:', token);
+  // console.log('Token:', token);
 
   // Check if the token is present after splitting
   if (!token) {
@@ -37,7 +37,7 @@ const verifyJWT = (req, res, next) => {
     }
 
     // Log the decoded token for debugging
-    console.log('Decoded token:', decoded);
+    // console.log('Decoded token:', decoded);
 
     // Attach user information to the request object
     req.userId = decoded.id;

@@ -26,7 +26,14 @@ const Login = () => {
   };
 
   return (
-    <div className="container vh-100 d-flex align-items-center justify-content-center bg-dark">
+    <div
+      className="container vh-100 d-flex align-items-center justify-content-center"
+      style={{
+        backgroundImage: "url(img1.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       <div className="col-md-6 col-lg-4">
         <div className="text-center my-4 text-white">
           <h1>Log In</h1>
@@ -34,7 +41,9 @@ const Login = () => {
         <div className="p-4 bg-light rounded">
           <form onSubmit={handleLogin} className="w-100">
             <div className="mb-3 mt-3">
-              <label htmlFor="email" className="form-label">Email:</label>
+              <label htmlFor="email" className="form-label">
+                Email:
+              </label>
               <input
                 type="email"
                 className="form-control"
@@ -46,7 +55,9 @@ const Login = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password:</label>
+              <label htmlFor="password" className="form-label">
+                Password:
+              </label>
               <input
                 type="password"
                 className="form-control"
@@ -57,9 +68,21 @@ const Login = () => {
                 required
               />
             </div>
-            {error && <div className="alert alert-danger" role="alert">{error}</div>}
-            <button type="submit" className="btn btn-primary w-100 mb-2">Sign In</button>
-            <button type="button" className="btn btn-outline-secondary w-100" onClick={() => navigate('/signup')}>Sign Up</button>
+            {error && (
+              <div className="alert alert-danger" role="alert">
+                {error}
+              </div>
+            )}
+            <button type="submit" className="btn btn-primary w-100 mb-2">
+              Sign In
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary w-100"
+              onClick={() => navigate("/signup")}
+            >
+              Sign Up
+            </button>
           </form>
         </div>
       </div>

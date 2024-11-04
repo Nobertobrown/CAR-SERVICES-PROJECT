@@ -29,8 +29,8 @@ export const addUser = async (req, res) => {
     });
     res.status(201).json({ user: newUser, success: true });
   } catch (error) {
-    console.error("Error creating user:", error);
-    res.status(500).json({ error: "Error creating user" });
+    console.error("Error creating user:", error.errors[0].message);
+    res.status(500).json({ error: error.errors[0].validatorKey });
   }
 };
 
